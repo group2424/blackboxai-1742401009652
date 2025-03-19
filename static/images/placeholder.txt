@@ -1,0 +1,10 @@
+Please replace these images with the actual files:
+
+1. background.jpg - Use the background image (blob:https://web.whatsapp.com/666c5029-e160-4182-a26b-92b807933603)
+2. profile.jpg - Use Ruth's profile picture (blob:https://web.whatsapp.com/a4f774f1-c70d-4407-a58e-7e871022299f)
+3. weblog.jpg - Use the web logo (blob:https://web.whatsapp.com/78d34a74-5b47-4cc8-8fa3-9df518bbc1c8)
+
+Instructions:
+1. Download the images from WhatsApp
+2. Rename them according to the names above
+3. Place them in this directory (static/images/)
