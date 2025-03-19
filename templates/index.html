@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} - Personal Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="font-[Poppins] min-h-screen flex items-center justify-center p-4">
+    <div class="container mx-auto">
+        <div class="profile-card max-w-4xl mx-auto">
+            <div class="md:flex items-stretch">
+                <!-- Left Column: Profile Info -->
+                <div class="md:w-1/3 p-4 md:p-8 text-center bg-white/50">
+                    <div class="profile-image-container mb-6">
+                        <img src="https://i.imgur.com/t6UB0ft.jpg" alt="{{ profile.name }}" class="w-36 h-36 md:w-48 md:h-48 rounded-full mx-auto object-cover border-4 border-white shadow-xl">
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">{{ profile.name }}</h1>
+                    <div class="flex items-center justify-center text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-pink-500"></i>
+                        <span>{{ profile.origin }}</span>
+                    </div>
+                    <div class="flex items-center justify-center text-gray-600">
+                        <i class="fas fa-birthday-cake mr-2 text-pink-500"></i>
+                        <span>{{ profile.age }} years old</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Details -->
+                <div class="md:w-2/3 p-4 md:p-8 bg-white/95">
+                    <!-- Interests Section -->
+                    <div class="mb-6 md:mb-8">
+                        <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+                            <i class="fas fa-heart text-pink-500 mr-3"></i>Interests
+                        </h2>
+                        <div class="space-y-3">
+                            {% for interest in profile.interests %}
+                            <div class="interest-item">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">{{ interest }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Story Section -->
+                    <div class="story-section">
+                        <h2 class="text-xl md:text-2xl font-semibold text-gray-800 mb-4">
+                            <i class="fas fa-book-open text-blue-500 mr-3"></i>My Story
+                        </h2>
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p>{{ profile.narrative }}</p>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Button -->
+                    <div class="mt-8 text-center">
+                        <a href="https://wa.me/250793514009?text=HELLO%20MRS" target="_blank" class="whatsapp-button">
+                            <i class="fab fa-whatsapp"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating WhatsApp Button (Mobile) -->
+        <div class="md:hidden">
+            <a href="https://wa.me/250793514009?text=HELLO%20MRS" target="_blank" class="floating-whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
